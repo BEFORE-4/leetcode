@@ -16,7 +16,7 @@ public class Solution19 {
         int len = nums.length;
         for (int i = 0; i < len - 3; i++) {
             if (i > 0 && nums[i - 1] == nums[i])
-                continue;   //数组值相同，跳过
+                continue;   //数组值相同，跳过，避免重复
             int min = nums[i] + nums[i + 1] + nums[i+2] + nums[i+3];
             if (min > target)  //目标值比循环的最小值都小，结束循环
                 break;
@@ -25,7 +25,7 @@ public class Solution19 {
                 continue;   //目标值比本轮循环的最大值都大，结束本轮循环
             for (int j = i + 1; j < len - 2; j++) {
                 if (j > i + 1 && nums[j - 1] == nums[j])
-                    continue;   //同外层循环，数组值相同，跳过
+                    continue;   //同外层循环，数组值相同，跳过，避免重复
                 min = nums[i] + nums[j] + nums[j + 1] + nums[j + 2];
                 if (min > target)
                     break;  //同外层循环，目标值小于循环的最小值，结束循环
